@@ -100,7 +100,7 @@ def system_tray(main_queue: mp.Queue, child_queue: mp.Queue):
                     elif parent_cmd in {'close', 'exit', '__EXIT__'}:
                         tray.stop()
             time.sleep(0.1)
-    
+
     tray = pystray.Icon('Music Caster SystemTray', unfilled_icon, title='Music Caster [LOADING]')
     threading.Thread(target=background, daemon=True).start()
     tray.run()
@@ -214,7 +214,7 @@ if __name__ == '__main__':
     import zipfile
     # 3rd party imports
     from flask import Flask, jsonify, render_template, request, redirect, send_file, Response, make_response
-    from jinja2.exceptions import TemplateNotFound    
+    from jinja2.exceptions import TemplateNotFound
     from werkzeug.exceptions import InternalServerError
     import pychromecast.controllers.media
     from pychromecast.error import PyChromecastError, UnsupportedNamespace, NotConnected
@@ -336,7 +336,7 @@ if __name__ == '__main__':
                 else:
                     tray_notify(gt('ERROR') + f': {e}')
 
-    
+
     def is_debug():
         return settings.get('DEBUG', DEBUG)
 
@@ -2085,8 +2085,7 @@ if __name__ == '__main__':
                 raise KeyboardInterrupt
 
         main_window.hidden_master_root.report_callback_exception = report_callback_exception
-        # drag and drop callbacks
-        main_window.TKroot.tk.call('package', 'require', 'tkdnd')
+
         if not settings['mini_mode']:
             main_window['url_input'].bind('<<Cut>>', '_cut')
             main_window['url_input'].bind('<<Copy>>', '_copy')
@@ -2101,8 +2100,10 @@ if __name__ == '__main__':
             for input_key in {'url_input', 'pl_url_input', 'pl_name', 'timer_input',
                               'metadata_title', 'metadata_artist', 'metadata_album', 'metadata_track_num'}:
                 main_window[input_key].Widget.config(insertbackground=settings['theme']['text'])
-            
-            try:
+
+            if platform.system() == 'Windows':
+                # drag and drop callbacks
+                main_window.TKroot.tk.call('package', 'require', 'tkdnd')
                 tk_lb = main_window['queue'].TKListbox
                 drop_target_register(tk_lb, DND_ALL)
                 dnd_bind(tk_lb, '<<Drop>>', lambda event: play_uris(tk_lb.tk.splitlist(event.data), queue_uris=True))
@@ -2118,7 +2119,7 @@ if __name__ == '__main__':
                 tk_lb = main_window['music_folders'].TKListbox
                 drop_target_register(tk_lb, DND_FILES)
                 dnd_bind(tk_lb, '<<Drop>>', lambda event: add_music_folder(tk_lb.tk.splitlist(event.data)))
-            except NameError:
+            else:
                 # https://github.com/rdbende/tkinterDnD
                 print('TODO: DND Not Implemented')
         else:
