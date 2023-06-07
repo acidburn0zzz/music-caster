@@ -14,7 +14,7 @@ pypresence~=4.0
 pyqrcode~=1.2.1
 PySimpleGUI~=4.55.1
 pystray==0.19.1
-requests==2.26
+requests==2.31.0
 urllib3~=1.26.7
 wavinfo==1.6
 youtube_dl
