@@ -6,7 +6,7 @@ pycparser==2.14
 mutagen~=1.45.1
 Pillow~=8.0
 pychromecast~=10.1
-protobuf==3.19.1
+protobuf==3.19.5
 zeroconf~=0.37
 pynput~=1.4.5
 pypng~=0.0.20
