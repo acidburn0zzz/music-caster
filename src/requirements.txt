@@ -1,24 +1,24 @@
 build_files/pyinstaller-4.8-py3-none-any.whl
 build_files/PyAudio-0.2.11-cp310-cp310-win_amd64.whl; sys_platform == 'win32'
 pyaudio; sys_platform != 'win32'
-ujson==4.2.0
+ujson==5.13.0
 pycparser==2.14
 mutagen~=1.45.1
-Pillow~=8.0
+Pillow~=12.3
 pychromecast~=10.1
-protobuf==3.19.1
-zeroconf~=0.37
+protobuf==5.29.6
+zeroconf~=0.151
 pynput~=1.4.5
 pypng~=0.0.20
 pypresence~=4.0
 pyqrcode~=1.2.1
 PySimpleGUI~=4.55.1
 pystray==0.19.1
-requests==2.26
-urllib3~=1.26.7
+requests==2.33.0
+urllib3~=2.8.0
 wavinfo==1.6
 youtube_dl
-werkzeug~=2.0.2
+werkzeug~=3.1.9
 pyperclip~=1.8
 python-vlc==3.0.12118
 lz4==3.1.3
